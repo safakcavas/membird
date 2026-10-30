@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Download Membird - Everyday Spanish practice for iOS and Android" />
+    <title>Download Membird | App Store & Google Play</title>
+    <link rel="icon" type="image/png" href="icon.png" />
+    <script>
+      (function() {
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('noredirect') === '1') return;
+
+        var force = (params.get('platform') || '').toLowerCase();
+        var ua = navigator.userAgent || navigator.vendor || window.opera || '';
+        var isIOS = force === 'ios' || /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var isAndroid = force === 'android' || /android/i.test(ua);
+
+        var APP_STORE_URL = 'https://apps.apple.com/app/id6796071322';
+        var PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.safakcavas.membird';
+
+        if (isIOS) {
+          window.location.replace(APP_STORE_URL);
+        } else if (isAndroid) {
+          window.location.replace(PLAY_STORE_URL);
+        }
+      })();
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #1e2637;
+        background: #f6f8fc;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        line-height: 1.5;
+      }
+      .card {
+        background: #ffffff;
+        border-radius: 28px;
+        box-shadow: 0 10px 40px rgba(30, 38, 55, 0.08);
+        padding: 44px 32px 36px;
+        max-width: 440px;
+        width: 100%;
+        text-align: center;
+      }
+      .app-icon {
+        width: 96px;
+        height: 96px;
+        border-radius: 22px;
+        box-shadow: 0 8px 24px rgba(112, 80, 232, 0.22);
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 1.75rem;
+        font-weight: 800;
+        margin: 0 0 8px;
+        color: #1e2637;
+        letter-spacing: -0.02em;
+      }
+      .tagline {
+        color: #64748b;
+        font-size: 0.98rem;
+        margin: 0 0 28px;
+        line-height: 1.5;
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #f1f3fd;
+        color: #553bb8;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 24px;
+      }
+      .spinner {
+        width: 14px;
+        height: 14px;
+        border: 2px solid #a99cf4;
+        border-top-color: #553bb8;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      .badges {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      .badge-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #000000;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 12px 20px;
+        border-radius: 14px;
+        font-weight: 600;
+        transition: transform 0.15s ease, opacity 0.15s ease;
+      }
+      .badge-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+      .badge-btn svg {
+        margin-right: 12px;
+        flex-shrink: 0;
+      }
+      .badge-text {
+        text-align: left;
+        line-height: 1.2;
+      }
+      .badge-sub {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        opacity: 0.85;
+      }
+      .badge-main {
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+      .legal-links {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        border-top: 1px solid #eef2f6;
+        padding-top: 20px;
+        font-size: 0.85rem;
+      }
+      .legal-links a {
+        color: #8392a5;
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
+      .legal-links a:hover {
+        color: #553bb8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img src="icon.png" alt="Membird Icon" class="app-icon" />
+      <h1>Membird</h1>
+      <p class="tagline">Everyday Spanish practice through vocabulary, example sentences, verb conjugation, and pronunciation lessons.</p>
+
+      <div class="status" id="redirect-status">
+        <span class="spinner" id="spinner"></span>
+        <span id="status-text">Redirecting to store...</span>
+      </div>
+
+      <div class="badges">
+        <!-- iOS App Store Button -->
+        <a class="badge-btn" id="ios-btn" href="https://apps.apple.com/app/id6796071322">
+          <svg width="28" height="28" viewBox="0 0 170 170" fill="currentColor">
+            <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.85-11.96-14.42-5.45-8.48-9.88-18.23-13.29-29.27-3.41-11.04-5.12-21.84-5.12-32.4 0-14.02 3.65-25.96 10.95-35.81 7.3-9.85 16.59-14.86 27.87-15.03 4.89 0 10.33 1.25 16.32 3.75 5.99 2.5 9.94 3.8 11.85 3.91 2.39-.11 6.6-1.52 12.63-4.23 6.03-2.71 11.45-3.96 16.27-3.75 12.72.65 22.84 5.37 30.37 14.16-10.99 6.64-16.38 15.75-16.17 27.34.22 9.03 3.69 16.71 10.42 23.03 6.73 6.32 14.65 10.02 23.77 11.1-2.17 6.53-4.78 13.06-7.83 19.59zM119.22 31.84c0-7.39 2.66-14.32 7.98-20.78 5.32-6.46 11.89-10.48 19.71-12.06.33 1.3.49 2.45.49 3.44 0 7.39-2.8 14.37-8.4 20.95-5.6 6.57-12.23 10.46-19.89 11.66-.44-1.08-.66-2.15-.66-3.21z"/>
+          </svg>
+          <div class="badge-text">
+            <div class="badge-sub">Download on the</div>
+            <div class="badge-main">App Store</div>
+          </div>
+        </a>
+
+        <!-- Android Google Play Button -->
+        <a class="badge-btn" id="android-btn" href="https://play.google.com/store/apps/details?id=com.safakcavas.membird">
+          <svg width="28" height="28" viewBox="0 0 512 512">
+            <path fill="#4285F4" d="M325.3 234.3L10.5 45.3c-.3 1.2-.5 2.5-.5 3.9v413.6c0 1.4.2 2.7.5 3.9l314.8-232.4z"/>
+            <path fill="#FBBC04" d="M399.7 298.5l-74.4-64.2L10.5 466.7c3.4 3.7 8.3 6.1 13.8 6.1 3.5 0 6.9-.9 9.8-2.6l365.6-211.7z"/>
+            <path fill="#0F9D58" d="M399.7 213.5L34.1 41.8c-2.9-1.7-6.3-2.6-9.8-2.6-5.5 0-10.4 2.4-13.8 6.1l314.8 232.4 74.4-64.2z"/>
+            <path fill="#EA4335" d="M495.2 239.3l-95.5-55.3-74.4 64.2 74.4 64.2 95.5-55.3c7.2-4.2 11.8-11.8 11.8-20.1s-4.6-15.9-11.8-17.7z"/>
+          </svg>
+          <div class="badge-text">
+            <div class="badge-sub">GET IT ON</div>
+            <div class="badge-main">Google Play</div>
+          </div>
+        </a>
+      </div>
+
+      <nav class="legal-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+
+    <script>
+      (function() {
+        var ua = navigator.userAgent || navigator.vendor || window.opera || '';
+        var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var isAndroid = /android/i.test(ua);
+        var statusText = document.getElementById('status-text');
+        var spinner = document.getElementById('spinner');
+        var iosBtn = document.getElementById('ios-btn');
+        var androidBtn = document.getElementById('android-btn');
+
+        if (isIOS) {
+          statusText.textContent = "Opening in App Store...";
+          iosBtn.style.outline = "3px solid #7050e8";
+        } else if (isAndroid) {
+          statusText.textContent = "Opening in Google Play...";
+          androidBtn.style.outline = "3px solid #7050e8";
+        } else {
+          // Desktop / Laptop
+          if (spinner) spinner.style.display = "none";
+          statusText.textContent = "Available on iOS and Android";
+        }
+      })();
+    </script>
+  </body>
+</html>
